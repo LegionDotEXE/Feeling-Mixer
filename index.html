@@ -1,0 +1,92 @@
+<!-- Index.html -->
+<!-- THE FEELING MIXER -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>THE FEELING MIXER</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>THE FEELING MIXER</h1>
+  
+  <p class="subtitle">Create your feeling landscape</p>
+</header>
+
+<main>
+  <div id="console">
+
+    <div class="slider-group">
+      <label for="hope">hope <span id="hope-val">50</span></label>
+      <input type="range" id="hope" min="0" max="100" value="50">
+    </div>
+
+    <div class="slider-group">
+      <label for="dread">dread <span id="dread-val">20</span></label>
+      <input type="range" id="dread" min="0" max="100" value="20">
+    </div>
+
+    <div class="slider-group">
+      <label for="nostalgia">nostalgia <span id="nostalgia-val">30</span></label>
+      <input type="range" id="nostalgia" min="0" max="100" value="30">
+    </div>
+
+    <div class="slider-group">
+      <label for="calm">calm <span id="calm-val">60</span></label>
+      <input type="range" id="calm" min="0" max="100" value="60">
+    </div>
+
+    <div class="slider-group">
+      <label for="longing">longing <span id="longing-val">25</span></label>
+      <input type="range" id="longing" min="0" max="100" value="25">
+    </div>
+
+    <div class="slider-group">
+      <label for="joy">joy <span id="joy-val">40</span></label>
+      <input type="range" id="joy" min="0" max="100" value="40">
+    </div>
+
+    <div id="presets">
+      <span class="preset-label">presets</span>
+      <button class="preset" data-preset="3am">3 a.m. vibe</button>
+      <button class="preset" data-preset="sunday">sunday morning</button>
+      <button class="preset" data-preset="drivehome">the drive back home</button>
+      <button class="preset" data-preset="goodnews">right after good news</button>
+      <button class="preset" data-preset="reply">waiting for a reply</button>
+    </div>
+
+    <div id="console-buttons">
+      <button id="save">Save your Mix</button>
+      <button id="clear">clear</button>
+    </div>
+
+  </div>
+
+  <div id="stage">
+    <div id="scene">
+      <div id="sky"></div>
+      <div id="stars"></div>
+      <div id="light"></div>
+      <div id="hills"></div>
+      <div id="distant-light"></div>
+      <div id="sparkles"></div>
+      <div id="fog"></div>
+      <div id="sepia"></div>
+    </div>
+    <p id="caption">a subtle grey, waiting to be mixed.</p>
+  </div>
+</main>
+
+<div id="shelf">
+  <span id="shelf-label">Saved Mixes</span>
+  <div id="shelf-mixes"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

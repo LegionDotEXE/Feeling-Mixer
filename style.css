@@ -1,0 +1,336 @@
+/* Style.css prefab */
+
+/* Lodged changes */
+
+/* TEST 17 */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  
+}
+
+body {
+    background: #14100d;
+    color: #e8dcc8;
+    font-family: Georgia, "Times New Roman", serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* background: #000000; */
+}
+
+header {
+  padding: 26px 32px 10px;
+}
+
+h1 {
+  font-weight: normal;
+  letter-spacing: 0.28em;
+  font-size: 1.25rem;   
+}
+
+.subtitle {
+  font-size: 1.0rem;
+  opacity: 0.55;
+  font-style: italic;
+  margin-top: 6px;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    gap: 26px;
+    padding: 14px 32px;
+}
+
+#console {
+    width: 300px;       
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.slider-group label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 6px;
+}
+
+.slider-group label span {
+    opacity: 0.55;
+}
+
+input[type=range] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: #3a2f26;
+    border-radius: 2px;
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #ffbb66;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(255, 170, 80, 0.6);
+}
+
+input[type=range]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    border: none;
+    border-radius: 50%;
+    background: #ffbb66;
+    cursor: pointer;
+}
+
+#presets {
+    margin-top: 4px;
+}
+
+.preset-label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    opacity: 0.5;
+    margin-bottom: 8px;
+}
+
+.preset {
+    background: #241c15;
+    color: #e8dcc8;
+    border: 1px solid #3a2f26;
+    padding: 6px 10px;
+    margin: 0 6px 6px 0;
+    font-family: inherit;
+    font-size: 0.75rem;
+    cursor: pointer;
+    border-radius: 3px;
+    /* padding: 8px 14px; */
+}
+
+.preset:hover {
+    border-color: #ffbb66;
+}
+
+#console-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+#console-buttons button {
+    flex: 1;
+    background: #2c2118;
+    color: #ffd9a0;
+    border: 1px solid #4a3a2a;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    cursor: pointer;
+    border-radius: 3px;
+    letter-spacing: 0.1em;
+}
+
+#console-buttons button:hover {
+    border-color: #ffbb66;   
+}
+
+#stage {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 0;   
+}
+
+
+#scene {
+    --sky-top: #0a0e20;
+    --sky-bottom: #14162c;
+    --light-top: 40%;
+    --light-left: 50%;
+    --light-size: 60px;
+    --light-color: #f0e6d0;
+    --light-glow: #c8b080;
+    --light-opacity: 0.7;
+    --stars-opacity: 0;
+    --fog-opacity: 0;
+    --distant-opacity: 0;
+    --sparkles-opacity: 0;
+    --sepia-opacity: 0;
+    --hills-color: #0a0c14;
+    --scene-filter: none;
+
+    position: relative;
+    flex: 1;
+    min-height: 380px;
+    border-radius: 8px;
+    overflow: hidden;
+    filter: var(--scene-filter);
+    transition: filter 0.4s ease;
+}
+
+#sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, var(--sky-top), var(--sky-bottom));
+    transition: background 0.4s ease;
+}
+
+#stars {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;   
+    opacity: var(--stars-opacity);
+    transition: opacity 0.4s ease;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: #ffffff;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+#light {
+    position: absolute;
+    left: var(--light-left);
+    top: var(--light-top);
+    transform: translate(-50%, -50%);   
+    width: 60px;
+    height: 60px;
+    width: var(--light-size);
+    height: var(--light-size);
+    border-radius: 50%;
+    background: var(--light-color);
+    opacity: var(--light-opacity);
+    box-shadow: 0 0 60px 22px var(--light-glow);
+    transition: all 0.4s ease;
+}
+
+#hills {
+    position: absolute;
+    left: -10%;
+    right: -10%;
+    bottom: -12%;
+    height: 34%;
+    background: var(--hills-color);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0; 
+    transition: background 0.4s ease;
+}
+
+#distant-light {
+    position: absolute;
+    left: 76%;
+    top: 70%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ffd9a0;
+    box-shadow: 0 0 12px 4px rgba(255, 200, 120, 0.8);
+    opacity: var(--distant-opacity);
+    transition: opacity 0.4s ease;
+}
+
+#sparkles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: var(--sparkles-opacity);
+    transition: opacity 0.4s ease;
+}
+
+.sparkle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #ffd98a;
+    animation: twinkle 2s infinite ease-in-out;  
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 1; }
+}
+
+#fog {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60%;
+    background: linear-gradient(to top, rgba(120, 125, 140, 0.5), rgba(120, 125, 140, 0));
+    filter: blur(6px);  
+    opacity: var(--fog-opacity);
+    transition: opacity 0.4s ease;
+}
+
+#sepia {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(180, 130, 70, 0.16);
+    mix-blend-mode: multiply;    
+    opacity: var(--sepia-opacity);
+    transition: opacity 0.4s ease;
+}
+
+#caption {
+    font-style: italic;
+    font-size: 0.95rem;
+    text-align: center;
+    opacity: 0.85;
+    min-height: 1.4em;  
+}
+
+#shelf {
+    padding: 16px 32px 26px;
+}
+
+#shelf-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    opacity: 0.5;
+}
+
+#shelf-mixes {
+    margin-top: 10px;
+}
+
+.saved-mix {
+    background: #241c15;
+    color: #e8dcc8;
+    border: 1px solid #3a2f26;
+    padding: 6px 12px;
+    margin: 0 8px 6px 0;
+    font-family: inherit;
+    font-size: 0.75rem;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.saved-mix:hover {
+border-color: #ffbb66;   
+}
+
